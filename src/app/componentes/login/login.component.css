@@ -1,8 +1,11 @@
 
+
 form {
     border: 10px solid #f1f1f1;
     padding: 10px;
-    background:gray;
+    background:rgb(79, 168, 190);
+    height: 700px;
+    width: 40%;
 }
 
 input[type=text], input[type=password] {
