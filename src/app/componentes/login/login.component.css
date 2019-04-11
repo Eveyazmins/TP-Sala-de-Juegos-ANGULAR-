@@ -4,9 +4,14 @@ form {
     border: 10px solid #f1f1f1;
     padding: 10px;
     background:rgb(79, 168, 190);
-    height: 700px;
+    height: 730px;
     width: 40%;
 }
+
+.form-control{
+    height: 50px;
+}
+
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -17,6 +22,7 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
+
 button {
     background-color: #4CAF50;
     color: white;
@@ -26,6 +32,44 @@ button {
     cursor: pointer;
     width: 100%;
 }
+
+.buttonreg{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    font: 150% monospace;
+  }
+
+  .buttonacp{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border-radius: 6px;
+    border: 2px solid rgb(2, 48, 3);
+    font: 150% monospace;
+  }
+
+  .buttoncan{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: rgb(228, 21, 21);
+    border-radius: 6px;
+    border: 2px solid rgb(87, 3, 3);
+    font: 150% monospace;
+  }
+
+
 
 button:hover {
     opacity: 0.8;
