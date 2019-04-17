@@ -33,7 +33,8 @@ export class LoginComponent implements OnInit {
 
   Entrar() {
     if (this.usuario === 'admin' && this.clave === 'admin') {
-      this.router.navigate(['/Principal']);
+      this.router.navigate(['/MenuJuegos']);
+    
     }
   }
   MoverBarraDeProgreso() {

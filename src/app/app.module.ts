@@ -54,6 +54,7 @@ import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
 import { from } from 'rxjs';
+import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { from } from 'rxjs';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    MenuJuegosComponent
   ],
   imports: [
     BrowserModule,
