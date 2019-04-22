@@ -3,6 +3,8 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { empty } from 'rxjs/observable/empty';
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
@@ -15,6 +17,13 @@ export class AgilidadAritmeticaComponent implements OnInit {
   ocultarVerificar: boolean;
   Tiempo: number;
   repetidor:any;
+
+    //agregados
+    miNumero:number;
+    gano:boolean;
+    spiner:boolean = true;
+    Mensajes:string;
+
   private subscription: Subscription;
   ngOnInit() {
   }
@@ -25,8 +34,16 @@ export class AgilidadAritmeticaComponent implements OnInit {
     console.info("Inicio agilidad");  
   }
   NuevoJuego() {
+
+    //agregados
+    this.nuevoJuego = new JuegoAgilidad();
+    this.gano = false;
+    this.spiner = false;
+    this.nuevoJuego.randomNumeroOperador();
+    //--
+
     this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{ 
+    this.repetidor = setInterval(()=>{ 
       
       this.Tiempo--;
       console.log("llego", this.Tiempo);
@@ -43,9 +60,42 @@ export class AgilidadAritmeticaComponent implements OnInit {
   {
     this.ocultarVerificar=false;
     clearInterval(this.repetidor);
-   
 
-   
+    //agregados
+    this.nuevoJuego.calcular(this.miNumero);
+    this.gano = this.nuevoJuego.calcular(this.miNumero);
+    console.log("GANO",this.gano);
+
+    if (this.gano == true) {
+      this.miNumero =0;
+      this.MostarMensaje("Sos un capo,Ganaste!!!",true);
+      this.enviarJuego.emit(this.nuevoJuego);
+    }
+    else{
+      this.miNumero =0;
+      this.MostarMensaje("La próxima será!!!",false);
+      this.enviarJuego.emit(this.nuevoJuego);
+    }
+    this.spiner = true;
+    this.ocultarVerificar=true;
   }  
+
+  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
+    this.Mensajes=mensaje;    
+    let errorEmail = document.getElementById("msjPuntos");
+    if(ganador)
+      {
+        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-success>${mensaje} <i class="far fa-smile"></i> </kbd></h3>`);
+      }else{
+        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-danger>${mensaje} <i class="far fa-frown"></i></kbd></h3>`);
+      }
+    var modelo=this;
+    setTimeout(function(){ 
+      // errorEmail.className = errorEmail.className.replace("show", "");
+      errorEmail.innerHTML = "";
+     }, 3000);
+    console.info("objeto",errorEmail);
+  
+   }
 
 }
