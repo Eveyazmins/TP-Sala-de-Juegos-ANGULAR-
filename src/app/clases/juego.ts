@@ -14,8 +14,6 @@ export abstract class Juego {
     else
       this.jugador= "natalia natalia";
   }
-
-
   
 
   public abstract verificar():boolean; 
