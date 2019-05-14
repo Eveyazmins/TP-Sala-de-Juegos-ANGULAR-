@@ -1,24 +1,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="hero-text">
+  <h4>
+    {{nuevoJuego.nombre}}
+  </h4>
+</div>
+
 <div class="fondo">
 
   <div name="juego">
-    <div class="hero-text">
-   
-      <h4>
-        {{nuevoJuego.nombre}}
-      </h4>
+
     
-    </div>
 
     <div class="container">
       
-        <li>
+        
           <div class="bordeNumeros">
             <img src="{{nuevoJuego.numeroUnoIMG}}">
             <img src="{{nuevoJuego.operadorIMG}}">
             <img src="{{nuevoJuego.numeroDosIMG}}">
           </div>
-        </li>
+        
 
 <!--
         <li>
@@ -26,7 +28,6 @@
             <button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button>
           </h4>
         </li>
-
         <li>
           <h4 [hidden]="!ocultarVerificar">
             <button (click)="NuevoJuego()" class="button">Nuevo</button>
@@ -34,24 +35,22 @@
         </li>
       -->
       
-      <li>
       
-            <input [(ngModel)]="miNumero" placeholder="Respuesta" name="numeroIngresado" type="number" class="campos"
-            />
+      
+            <input [(ngModel)]="miNumero" placeholder="Respuesta" name="numeroIngresado" type="number" class="campos"/>
          
 
-        </li>
-        <li>
+     
           <h4 [hidden]="ocultarVerificar">
             <button (click)="verificar()" class="button">Verificar {{Tiempo}} </button>
           </h4>
-        </li>
+       
 
-        <li>
+        
           <h4 [hidden]="!ocultarVerificar">
-            <button (click)="NuevoJuego()" class="button">Nuevo</button>
+            <button (click)="NuevoJuego()" class="button">Nuevo juego</button>
           </h4>
-        </li>
+        
       <br>
       <br>
       <h4 [hidden]="spiner">
