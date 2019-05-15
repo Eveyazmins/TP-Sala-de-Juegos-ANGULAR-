@@ -24,6 +24,12 @@ import { JugadoresListadoComponent } from '../componentes/jugadores-listado/juga
 import { MenuJuegosComponent } from '../componentes/menu-juegos/menu-juegos.component';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { PiedraPapelTijeraMasListadoComponent } from '../componentes/piedra-papel-tijera-mas-listado/piedra-papel-tijera-mas-listado.component';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
+import { AnagramaMasListadoComponent } from '../componentes/anagrama-mas-listado/anagrama-mas-listado.component';
+import { TatetiMasListadoComponent } from '../componentes/tateti-mas-listado/tateti-mas-listado.component';
+import { JuegoSonidoComponent } from '../componentes/juego-sonido/juego-sonido.component';
+import { JuegoSonidoMasListadoComponent } from '../componentes/juego-sonido-mas-listado/juego-sonido-mas-listado.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
@@ -47,7 +53,14 @@ children:
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
       {path: 'PPT' , component: PiedraPapelTijeraComponent},
-      {path: 'PPTMasListado' , component: PiedraPapelTijeraMasListadoComponent}]
+      {path: 'PPTMasListado' , component: PiedraPapelTijeraMasListadoComponent},
+      {path: 'Tateti' , component: TatetiComponent},
+      {path: 'TatetiMasListado' , component: TatetiMasListadoComponent},
+      {path: 'Anagrama' , component: AnagramaComponent},
+      {path: 'AnagramaMasListado' , component: AnagramaMasListadoComponent},
+      {path: 'Sonido' , component: JuegoSonidoComponent},
+      {path: 'SonidoMasListado' , component: JuegoSonidoMasListadoComponent}
+    ]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];
