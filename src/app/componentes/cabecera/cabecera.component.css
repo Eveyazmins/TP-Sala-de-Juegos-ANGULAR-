@@ -70,6 +70,19 @@ button {
     font: 150% monospace;
   }
 
+  .buttonme{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: rgb(216, 46, 83);
+    border-radius: 6px;
+    border: 2px solid rgb(109, 3, 14);
+    font: 150% monospace;
+
+  }
+
 button:hover {
     opacity: 0.8;
 }
