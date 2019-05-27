@@ -55,6 +55,13 @@ import { InputJugadoresComponent } from './componentes/input-jugadores/input-jug
 import { SexoPipe } from './pipes/sexo.pipe';
 import { from } from 'rxjs';
 import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { PiedraPapelTijeraMasListadoComponent } from './componentes/piedra-papel-tijera-mas-listado/piedra-papel-tijera-mas-listado.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { AnagramaMasListadoComponent } from './componentes/anagrama-mas-listado/anagrama-mas-listado.component';
+import { TatetiMasListadoComponent } from './componentes/tateti-mas-listado/tateti-mas-listado.component';
+import { JuegoSonidoComponent } from './componentes/juego-sonido/juego-sonido.component';
+import { JuegoSonidoMasListadoComponent } from './componentes/juego-sonido-mas-listado/juego-sonido-mas-listado.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +88,14 @@ import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.compo
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    MenuJuegosComponent
+    MenuJuegosComponent,
+    PiedraPapelTijeraComponent,
+    PiedraPapelTijeraMasListadoComponent,
+    TatetiComponent,
+    AnagramaMasListadoComponent,
+    TatetiMasListadoComponent,
+    JuegoSonidoComponent,
+    JuegoSonidoMasListadoComponent
   ],
   imports: [
     BrowserModule,

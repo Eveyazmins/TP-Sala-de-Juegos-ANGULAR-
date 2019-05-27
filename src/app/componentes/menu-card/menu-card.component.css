@@ -5,10 +5,12 @@
     max-width: 1000px;
     height: 100%;
     margin: 30px;
-    padding-bottom: 10px;
+    padding-bottom: 100px;
     float: left;
-  background-color: #DEF3A6;
+    background-color: rgb(227, 247, 140);
     text-align: center;
+    font-family: 'Cambria';
+    color: rgb(238, 75, 11)
 }
 
 /* Add rounded corners to the top left and the top right corner of the image */
@@ -34,8 +36,22 @@ img {
         left: 50%;
     }
 
+.panel
+{
+    width: 200px;
+    height: 1000px;
+   /* background-image: url("assets/imagenes/banner_cabecera1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;*/
+    background-color: #08dce4;
+    
+}
 
 .button{
+    /*
+    background-image: url(../../../assets/boton-jugar.png);
     margin-left: 1px;
     display: inline-block;
     width: 90%;
@@ -56,9 +72,17 @@ img {
     padding: 8px;
     color: white;
    /* background-color: #000;*/
-    text-align: center;
+    /*text-align: center;
     cursor: pointer;
     width: 100%;
+    */
+    background-image: url(../../../assets/boton-jugar.png);
+    height: 91px;
+    width: 237px;
+    background-color: transparent;
+    background-size: cover;
+    padding: 0;
+    border: none;
   }
   
   .button:hover {background-color: #3e8e41}
@@ -94,5 +118,3 @@ img {
     background-color: #555;
     color: white;
     }
-
-

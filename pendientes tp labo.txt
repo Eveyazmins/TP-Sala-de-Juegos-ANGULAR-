@@ -1,0 +1,7 @@
+* Ocultar sonido en ppt
+* Listado de jugadores en todos los juegos
+* LogIn integrado
+* Cambiar cajas de juegos
+* L&F de juegos
+*guardar resultados en base o ls
+*Quien soy ya linkeado (falta mejorar l&f)

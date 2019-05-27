@@ -1,28 +1,54 @@
-img{
-    height: 95px;
-    width: 95px;
-}
-.container-fluid {
-    background-color: whitesmoke;
-    color:#EFDA54;
-    height: 400px;
-    display: block;
-
-}
-.fondo{
-	box-shadow: 1px 1px 18px 2px #000;
-
-	background-color:#0A5699;
-	padding-left: 7px;
-	width: 365px;
-    height: 569px;
-    margin: auto;
-    border-radius: 10px;
-    border-color: #EFDA54;
-	
+ul{
+	list-style-type:none;
 }
 
-td {
+.container {
+  background-color:rgb(103, 171, 231);
+  box-shadow: 1px 1px 18px 2px #000;
+  border-radius: 10px;
+  height: 800px;
+  width: 632px;
+  margin:150px auto;
+
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #3E06B0;
+  font: 350% monospace;
+  }
+  
+  .hero-text a {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 10px 25px;
+  color: black;
+  background-color: #ddd;
+  text-align: center;
+  cursor: pointer;
+  }
+  
+  .hero-text a:hover {
+  background-color: #555;
+  color: white;
+  }
+
+  button {
+      /*background-color: #4CAF50;*/
+      color: rgb(97, 96, 90);
+      padding: 20px 50px;
+      margin: 8px 20;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+  }
+
+  td {
     border: 6px solid #222;
   }
   td::after {
@@ -47,16 +73,14 @@ td {
     border-bottom-color: transparent;
   }
 
-
-
-.btn:hover {
-
-    	box-shadow: 1px 1px 18px 2px #000;
-}
-
-.Ganador {
+  .btn:hover {
+    box-shadow: 1px 1px 18px 2px #000;
+  }
+    
+  .Ganador {
     background-color: #059F2F;
-}
-.Perdedor {
+  }
+  
+  .Perdedor {
     background-color: #FF0000;
-}
+  }
