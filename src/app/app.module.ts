@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -63,6 +65,13 @@ import { TatetiMasListadoComponent } from './componentes/tateti-mas-listado/tate
 import { JuegoSonidoComponent } from './componentes/juego-sonido/juego-sonido.component';
 import { JuegoSonidoMasListadoComponent } from './componentes/juego-sonido-mas-listado/juego-sonido-mas-listado.component';
 
+import { AngularFireModule } from '@angular/fire';
+// import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthService } from './servicios/auth.service';
+import { environment } from '../environments/environment.prod';
+import {firebaseConfig} from "../environments/environment";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +109,11 @@ import { JuegoSonidoMasListadoComponent } from './componentes/juego-sonido-mas-l
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
+    //AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
@@ -109,7 +122,7 @@ import { JuegoSonidoMasListadoComponent } from './componentes/juego-sonido-mas-l
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
