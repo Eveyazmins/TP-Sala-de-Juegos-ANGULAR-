@@ -25,6 +25,12 @@ import { AdivinaMasListadoComponent } from './componentes/adivina-mas-listado/ad
 import { AgilidadMasListadoComponent } from './componentes/agilidad-mas-listado/agilidad-mas-listado.component';
 import { RuteandoModule } from './ruteando/ruteando.module';
 import { ListadoComponent } from './componentes/listado/listado.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import {AuthService} from '../app/servicios/auth.service';
+
+import {environment} from '../environments/environment';
 // declaro donde quiero que se dirija
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
@@ -53,8 +59,12 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
-import { from } from 'rxjs';
-import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
+import { FooterComponent } from './componentes/footer/footer.component';
+import { AdivinaProvinciaComponent } from './componentes/adivina-provincia/adivina-provincia.component';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { TatetiComponent } from './componentes/tateti/tateti.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +91,12 @@ import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.compo
     JugadoresListadoComponent,
     InputJugadoresComponent,
     SexoPipe,
-    MenuJuegosComponent
+    HomeComponent,
+    MenuPrincipalComponent,
+    FooterComponent,
+    AdivinaProvinciaComponent,
+    PiedraPapelTijeraComponent,
+    TatetiComponent
   ],
   imports: [
     BrowserModule,
@@ -90,12 +105,16 @@ import { MenuJuegosComponent } from './componentes/menu-juegos/menu-juegos.compo
     HttpModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
     // RouterModule.forRoot(MiRuteo)
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService,
+    AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

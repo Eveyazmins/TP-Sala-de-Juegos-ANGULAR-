@@ -1,133 +1,109 @@
-<!--
+<div class="fondo">
 
-<div class="container" >
-
-    <div class="card">
-      <img class="img-thumbnail"   src="./assets/imagenes/juegoarit2.jpg" alt="Avatar" style="width:100%">
-      <h1>Velocidad y agilidad aritmética </h1>
-      <p class="title">Juego de agilidad mental</p>
-      <p>UTN FRA </p>
-  
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Agilidad')">Jugar</button></p>
+  <h3 class="text-center" style="color:white">Juegos</h3>
+  <div class="container mt-40">
     
+    <div class="row mt-30">
+        <div class="col-md-4 col-sm-6">
+            <div class="box4">
+              <img class="img-thumbnail"   src="./assets/imagenes/juegoarit2.jpg" alt="Avatar">
+                <div class="box-content">
+                    <h3 class="title">Agilidad Aritmetica</h3>
+                    <span class="post">Cuan bueno eres en matematicas?</span>
+                    <p><button class="btn btn-warning"  (click)="Juego('Agilidad')">Jugar</button></p>
+                    <ul class="icon">
+                      <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="box4">
+              <img  class="img-thumbnail"  src="./assets/imagenes/juegoadivinador2.jpg" alt="Avatar">
+                <div class="box-content">
+                    <h3 class="title">Numero Secreto</h3>
+                    <span class="post">Adivina adivinador. Podrás adivinar el número?</span>
+                    <p><button class="btn btn-warning"  (click)="Juego('Adivina')">Jugar</button></p>
+                    <ul class="icon">
+                      <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <div class="box4">
+              <img class="img-thumbnail" src="./assets/imagenes/juegoppt.jpg" alt="Avatar">
+                <div class="box-content">
+                    <h3 class="title">Piedra, Papel o Tijera</h3>
+                    <span class="post">Podrás ganarle a la máquina?</span>
+                    <p><button class="btn btn-warning"  (click)="Juego('PPT')">Jugar</button></p>
+                    <ul class="icon">
+                      <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+          <div class="box4">
+            <img  class="img-thumbnail"  src="./assets/imagenes/juegoadivinamusica.jpg" alt="Avatar">
+              <div class="box-content">
+                  <h3 class="title">Adivina los sonidos</h3>
+                  <span class="post">Cuanto sabes de animales?</span>
+                  <p><button class="btn btn-warning"  (click)="Juego('AdivinaProvincia')">Jugar</button></p>
+                  <ul class="icon">
+                    <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-sm-6">
+        <div class="box4">
+          <img  class="img-thumbnail"  src="./assets/imagenes/juegoanagrama2.jpg" alt="Avatar">
+            <div class="box-content">
+                <h3 class="title">Anagrama</h3>
+                <span class="post">Podrás formar la palabra?</span>
+                <p><button class="btn btn-warning"  (click)="Juego('Anagrama')">Jugar</button></p>
+                <ul class="icon">
+                  <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  
-    <div class="card">
-      <img class="img-thumbnail" src="./assets/imagenes/juegoppt.jpg" alt="Avatar" style="width:100%">
-      <h1>Piedra Papel o Tijera</h1>
-      <p class="title">Juega contra la máquina</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('PPT')">Jugar</button></p>
+
+    <div class="col-md-4 col-sm-6">
+      <div class="box4">
+        <img  class="img-thumbnail"  src="./assets/imagenes/juegotateti.jpg" alt="Avatar">
+          <div class="box-content">
+              <h3 class="title">TaTeTi</h3>
+              <span class="post">El clasico TA - TE - TI</span>
+              <p><button class="btn btn-warning"  (click)="Juego('Tateti')">Jugar</button></p>
+              <ul class="icon">
+                <li><a href="#"><i class="fa fa-dribbble"></i></a> </li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a> </li>
+                <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+              </ul>
+          </div>
+      </div>
+  </div>
     </div>
-    <div class="card">
-      <img  class="img-thumbnail"  src="./assets/imagenes/juegoadivinador2.jpg" alt="Avatar" style="width:100%">
-      <h1>Adivina el número secreto</h1>
-      <p class="title">Juega de estrategia</p>
-      <p>UTN FRA </p>
-      
-      <a href="#"><i class="fa fa-dribbble"></i></a> 
-      <a href="#"><i class="fa fa-twitter"></i></a> 
-      <a href="#"><i class="fa fa-linkedin"></i></a> 
-      <a href="#"><i class="fa fa-facebook"></i></a> 
-      <p>           <button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-    </div>
-  </div>
 
--->
-
-  <!-- TITULO -->
-  <div class="media-body">
-    <div class="hero-text">
-      <h4 >Juegos disponibles</h4>
-    </div>
-  </div>
-
-<div class="container">
-  <div class="card">
-    <img class="img-thumbnail"   src="./assets/imagenes/juegoarit2.jpg" alt="Avatar" style="width:100%">
-    <h1>Velocidad y agilidad aritmética </h1>
-    <p class="title">Juego de agilidad mental</p>
-    <p>UTN FRA </p> 
-    <!--<p><button class="button"  (click)="Juego('Agilidad')">Jugar</button></p>  -->
-    <p><button class="button" routerLink="Agilidad">Jugar</button>
-  </div>
-
-  <div class="card">
-    <img class="img-thumbnail" src="./assets/imagenes/juegoppt.jpg" alt="Avatar" style="width:100%">
-    <h1>Piedra - Papel o Tijera</h1>
-    <p class="title">Juega contra la máquina</p>
-    <p>UTN FRA </p>
-      
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a> 
-    <a href="#"><i class="fa fa-linkedin"></i></a> 
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-    <!--<p><button class="button"  (click)="Juego('PPT')">Jugar</button></p>-->
-    <p><button class="button" routerLink="PPT">Jugar</button>
-    
-  </div>
-
-  <div class="card">
-    <img  class="img-thumbnail"  src="./assets/imagenes/juegoadivinador2.jpg" alt="Avatar" style="width:100%">
-    <h1>Adivina el número secreto</h1>
-    <p class="title">Juega de estrategia</p>
-    <p>UTN FRA </p>
-      
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a> 
-    <a href="#"><i class="fa fa-linkedin"></i></a> 
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-    <p><button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-  </div>
-
-  <div class="card">
-    <img  class="img-thumbnail"  src="./assets/imagenes/juegotateti2.jpg" alt="Avatar" style="width:100%">
-    <h1>TA - TE - TI</h1>
-    <p class="title">Juego de estrategia</p>
-    <p>UTN FRA </p>
-      
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a> 
-    <a href="#"><i class="fa fa-linkedin"></i></a> 
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-   <!-- <p><button class="button"  (click)="Juego('Adivina')">Jugar</button></p>-->
-   <p><button class="button" routerLink="Tateti">Jugar</button>
-  </div>
-
-  <div class="card">
-    <img  class="img-thumbnail"  src="./assets/imagenes/juegoanagrama2.jpg" alt="Avatar" style="width:100%">
-    <h1>Anagrama</h1>
-    <p class="title">Juega de estrategia</p>
-    <p>UTN FRA </p>
-      
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a> 
-    <a href="#"><i class="fa fa-linkedin"></i></a> 
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-   <!-- <p><button class="button"  (click)="Juego('Adivina')">Jugar</button></p>-->
-   <p><button class="button" routerLink="Anagrama">Jugar</button>
-  </div>
-
-  <div class="card">
-    <img  class="img-thumbnail"  src="./assets/imagenes/juegoadivinamusica2.jpg" alt="Avatar" style="width:100%">
-    <h1>Mi juego agregado</h1>
-    <p class="title">Juega de estrategia</p>
-    <p>UTN FRA </p>
-      
-    <a href="#"><i class="fa fa-dribbble"></i></a> 
-    <a href="#"><i class="fa fa-twitter"></i></a> 
-    <a href="#"><i class="fa fa-linkedin"></i></a> 
-    <a href="#"><i class="fa fa-facebook"></i></a> 
-    <p><button class="button"  (click)="Juego('Adivina')">Jugar</button></p>
-  </div>
 
 </div>

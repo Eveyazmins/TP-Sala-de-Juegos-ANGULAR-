@@ -1,70 +1,72 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JuegoAnagrama } from '../../clases/juego-anagrama';
 
-import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
 @Component({
   selector: 'app-anagrama',
   templateUrl: './anagrama.component.html',
   styleUrls: ['./anagrama.component.css']
 })
 export class AnagramaComponent implements OnInit {
-  @Output() enviarJuego: EventEmitter<any>= new EventEmitter<any>();
-	nuevoJuego : JuegoAnagrama;
-	botonComenzarVerificar:boolean = true
-	spiner:boolean = true;
-  gano:boolean = false;
+
+  nuevoJuego: JuegoAnagrama;
   Mensajes:string;
+  contador:number;
+  ocultarVerificar:boolean;
+  mensaje : string;
+  ocultarComenzar : boolean = true;
+  jugador = JSON.parse(localStorage.getItem("Id"));
 
-    constructor() {
-    this.nuevoJuego = new JuegoAnagrama(); 
-   }
+  constructor() { 
+    this.nuevoJuego = new JuegoAnagrama("Anagrama",false,this.jugador, 0, "00"); 
+    this.ocultarVerificar=true;
+  }
 
-   generarPalabra() {
+
+  generarPalabra() {
     this.nuevoJuego.asignarPalabra();
-    this.spiner =false;
-    this.botonComenzarVerificar = false;
-  }
-  verificar() {
-    if (this.nuevoJuego.palabraIngresada == this.nuevoJuego.palabraAnagrama) {
-      return this.MostarMensaje("Ingrese palabra distinta!",false);
-      
-    }
-  	if (this.nuevoJuego.verificar() == true) {
-      this.MostarMensaje("Ganaste!!!",true);
-  		this.botonComenzarVerificar = true;
-  		this.spiner =true;
-      this.gano = true;
-      this.enviarJuego.emit(this.nuevoJuego);
-      this.nuevoJuego = new JuegoAnagrama();
-    }
-    else{
-      this.MostarMensaje("Perdiste!!!",false);
-      this.botonComenzarVerificar = true;
-  		this.spiner =true;
-      this.gano = false;
-      this.enviarJuego.emit(this.nuevoJuego);
-      this.nuevoJuego = new JuegoAnagrama();
-    }
-
+    this.contador=0;
+    this.ocultarVerificar = false;
+    this.nuevoJuego.gano = false;
+    this.Mensajes = "";
+    this.ocultarComenzar = false;
   }
 
-  MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
-    this.Mensajes=mensaje;    
-    let errorEmail = document.getElementById("msjPuntos");
-    if(ganador)
+  verificar()
+  {
+    this.contador++;
+    this.ocultarVerificar=true;
+    if (this.nuevoJuego.verificar()){
+      this.MostarMensaje("Adivinaste la palabra!!!",true);
+    }else{
+      this.mensaje = "No acertaste, buena suerte la proxima!";
+      this.MostarMensaje(this.mensaje); 
+      this.nuevoJuego.palabraIngresada ="";
+      this.nuevoJuego.palabraDesordenada = "";
+    }
+    console.info("Gano: ",this.nuevoJuego.gano);  
+    this.nuevoJuego.jugador=sessionStorage.getItem('user');
+    this.nuevoJuego.guardarLocal();
+    this.ocultarComenzar = true;
+  }  
+
+  MostarMensaje(mensaje:string,gano:boolean=false) {
+    this.Mensajes = mensaje;    
+    var x = document.getElementById("snackbar");
+    if(gano)
       {
-        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-success>${mensaje} <i class="far fa-smile"></i> </kbd></h3>`);
+        x.className = "show Ganador";
       }else{
-        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-danger>${mensaje} <i class="far fa-frown"></i></kbd></h3>`);
+        x.className = "show Perdedor";
       }
-    var modelo=this;
+
+    var modelo = this;
     setTimeout(function(){ 
-      // errorEmail.className = errorEmail.className.replace("show", "");
-      errorEmail.innerHTML = "";
+      x.className = x.className.replace("show", "");
+      //modelo.ocultarVerificar=false;
      }, 3000);
+    console.info("objeto",x);
   
-   }
+   }  
 
   ngOnInit() {
   }

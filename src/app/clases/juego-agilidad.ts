@@ -1,76 +1,61 @@
 import { Juego } from '../clases/juego';
 
-export class JuegoAgilidad extends  Juego {
+export class JuegoAgilidad extends Juego{
 
-    public numeroUno:number;
-    public numeroUnoIMG:string ="../../../assets/imagenes/mate/duda.gif";
-    public numeroDos:number;
-    public numeroDosIMG:string="../../../assets/imagenes/mate/duda.gif";
-    public operador:string;
-    public operadorAux:number;
-    public operadorIMG:string = "../../../assets/imagenes/mate/sumar.gif";
-    public resultado:number;
-    public respuesta:boolean;
+    primerNumero:number;
+    segundoNumero:number;
+    resultado: number;
+    operador: string;
+    resultadoUsuario:number
 
-    constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Velocidad aritmetica",gano,jugador);
-        this.jugador =localStorage.getItem("jugador");
-     
-   
+    constructor(nombre?: string, gano?: boolean, jugador?:string, intentos?:any,resultado?:string) {
+        super("Agilidad Aritmetica", gano,jugador, intentos, resultado);  
       }
 
+    generar()
+    {
+        this.primerNumero = Math.round(Math.random()*10);
+        this.segundoNumero = Math.round(Math.random()*10);
+        let numOperador = Math.round(Math.random()*3);
 
-
-    randomNumeroOperador(){
-    this.numeroUno = Math.floor( Math.random()*10)+1;
-    this.numeroUnoIMG ="../../../assets/imagenes/mate/"+this.numeroUno+".gif"
-    this.numeroDos = Math.floor( Math.random()*10)+1;
-    this.numeroDosIMG ="../../../assets/imagenes/mate/"+this.numeroDos+".gif"
-    this.operadorAux = Math.floor( Math.random()*4)+1;
-    switch (this.operadorAux) {
-    	case 1:
-    		this.operador = "+";
-            this.operadorIMG ="../../../assets/imagenes/mate/sumar.gif"
-    		this.resultado = this.numeroUno + this.numeroDos;
-    		break;
-    	case 2:
-    		this.operador = "-";
-            this.operadorIMG ="../../../assets/imagenes/mate/restar.gif"
-    		this.resultado = this.numeroUno - this.numeroDos;
-    		break;	
-    	case 3:
-    		this.operador ="x";
-            this.operadorIMG ="../../../assets/imagenes/mate/multiplicar.gif"
-    		this.resultado = this.numeroUno * this.numeroDos;
-    		break;
-    	case 4:
-            this.operador ="/";
-            this.operadorIMG ="../../../assets/imagenes/mate/dividir.gif"
-    		this.resultado = this.numeroUno / this.numeroDos;
-    		break;	
-    	}
-	}
-
-	calcular(numeroAux:number):boolean{
-
-        if(this.resultado == numeroAux)
+        switch(numOperador)
         {
-            this.gano =true;
-            this.respuesta =true;
+            case 0:
+                this.operador = "+";
+                this.resultado = this.primerNumero + this.segundoNumero;
+                break;
+            case 1:
+                this.operador = "-";
+                this.resultado = this.primerNumero - this.segundoNumero;
+                break;
+            case 2:
+                this.operador = "*";
+                this.resultado = this.primerNumero * this.segundoNumero;
+                break;
+            case 3:
+                this.operador = "/";
+                if(this.segundoNumero != 0)
+                this.resultado = this.primerNumero / this.segundoNumero;
+            break;    
         }
-		else{
-            this.gano =false;
-            this.respuesta =false;
+    }
+        public verificar()
+        {
+        
+            if(this.resultado == this.resultadoUsuario)
+            {
+                    this.gano = true;
+            }
+            if(this.gano)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        
         }
-			
 
-		return this.respuesta;
-
-	}
-
-     verificar() {
-      
-      return false;  
-     }
 
 }

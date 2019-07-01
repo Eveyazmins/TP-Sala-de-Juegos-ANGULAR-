@@ -1,4 +1,4 @@
-.imagenDeQuienSoy{
+/*.imagenDeQuienSoy{
     width: 100%;
    
     }
@@ -10,19 +10,19 @@ body {
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
 .bg-1 { 
-    background-color: #1abc9c; /* Green */
+    background-color: #1abc9c; /* Green 
     color: #ffffff;
 }
 .bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
+    background-color: #474e5d; /* Dark Blue 
     color: #ffffff;
 }
 .bg-3 { 
-    background-color: #ffffff; /* White */
+    background-color: #ffffff; /* White 
     color: #555555;
 }
 .bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
+    background-color: #2f2f2f; /* Black Gray 
     color: #fff;
 }
 .container-fluid {
@@ -40,4 +40,110 @@ p {font-size: 16px;}
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
+}
+
+*/
+.fondo{
+
+    background-image: url(".../../../docs/assets/imagenes/color_principal.jpg");
+    margin-top: -60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+body {
+    font-family: 'Roboto';font-size: 16px;
+}
+
+.aboutus-section {
+    padding: 90px 0;
+}
+.aboutus-title {
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 32px;
+    margin: 0 0 39px;
+    padding: 0 0 11px;
+    position: relative;
+    text-transform: uppercase;
+    color: rgb(214, 37, 75);
+    text-align: center;
+}
+.aboutus-title::after {
+    background: #fd014d none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 10px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.aboutus-text {
+    color: #da2067;
+    font-size: 20px;
+    line-height: 22px;
+    margin: 0 0 35px;
+}
+
+a:hover, a:active {
+    color: #b1085c;
+    text-decoration: none;
+    outline: 0;
+}
+.aboutus-more {
+    border: 1px solid #be0e7b;
+    border-radius: 25px;
+    color: #be173c;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    padding: 7px 20px;
+    text-transform: uppercase;
+}
+.feature .feature-box .iconset {
+    background: transparent none repeat scroll 0 0;
+    float: left;
+    position: relative;
+    width: 6%;
+}
+
+
+.feature .feature-box .feature-content h4 {
+    color: rgb(175, 20, 54);
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 0px;
+}
+
+
+.feature .feature-box .feature-content {
+    float: left;
+    width: 78%;
+}
+.feature .feature-box .feature-content h4 {
+    color: rgb(175, 21, 93);
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 0 5px;
+}
+.feature .feature-box .feature-content p {
+    color: #bd192f;
+    font-size: 20px;
+
+}
+.icon {
+    color : #b41631;
+    padding:0px;
+    font-size:40px;
+    border: 1px solid #a10553;
+    border-radius: 100px;
+    color: #a30b39;
+    font-size: 28px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    width: 70px;
 }

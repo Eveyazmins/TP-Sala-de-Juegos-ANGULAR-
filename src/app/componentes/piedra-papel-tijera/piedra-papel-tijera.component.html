@@ -1,10 +1,25 @@
+<!--<div class="fondo">
+
+  <h1>Juega Contra la Maquina</h1>
+  <div id="juego" >
+  <div  (click)="generar('Piedra')" id="piedra"></div>
+      <div  (click)="generar('Papel')" id="papel"></div>
+      <div  (click)="generar('Tijera')" id="tijera"></div>
+</div>
+
+<div id="snackbar">{{Mensajes}}</div>
+<br>
+</div>
+
+-->
+
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 
 <body style="background-color: whitesmoke">
 
   <div class="hero-text">
-    <h4>{{nuevoJuego.nombre}}</h4>
+ <!--   <h4>{{nuevoJuego.nombre}}</h4>-->
   </div>
   
   <div class="fondo">
@@ -16,6 +31,7 @@
         <div class="img">
           <br>
           <br>
+          <h4>Seleccione opcion</h4>
           <button id="botonPiedra" disabled class="btn btn-default btn-xs" (click)="generarPartida(1)"><img src="../../../assets/PPT/img/a1.png" ></button>
           <button id="botonPapel"  disabled class="btn btn-default btn-xs"(click)="generarPartida(2)"><img src="../../../assets/PPT/img/a2.png" ></button>
           <button id="botonTijera" disabled class="btn btn-default btn-xs"(click)="generarPartida(3)"><img src="../../../assets/PPT/img/a3.png" ></button>

@@ -1,85 +1,52 @@
 import { Juego } from '../clases/juego';
+
+
 export class JuegoAnagrama extends Juego {
 
-	respuestaIngresada : string;
-    respuesta : string;
-    palabraAnagrama="";
-    palabraAnagramaID:number;
-    palabraIngresada="";
+    palabraOrdenada:string;
+    palabraIngresada:string;
+    palabraDesordenada:string;
 
-	constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Anagrama",gano,jugador);
-        //this.jugador =localStorage.getItem("jugador");
+    constructor(nombre?: string, gano?: boolean, jugador?:string, intentos?:any,resultado?:string) {
+        super(nombre, gano,jugador, intentos, resultado);  
+        this.nombre="Anagrama";
       }
 
-      arrayPalabras : Array <any> = [
-        {palabra: "amor",id:1},
-        {palabra: "armo",id:1},
-        {palabra: "maro",id:1},
-        {palabra: "mora",id:1},
-        {palabra: "ramo",id:1},
-        {palabra: "roma",id:1},
-        {palabra: "agatinos",id:2},
-        {palabra: "agonista",id:2},
-        {palabra: "atosigan",id:2},
-        {palabra: "santiago",id:2},
-        {palabra: "nicolas",id:3},
-        {palabra: "alcinos",id:3},
-        {palabra: "colinas",id:3},
-        {palabra: "oliscan",id:3},
-        {palabra: "oscilan",id:3},
-        {palabra: "drope",id:4},
-        {palabra: "pedro",id:4},
-        {palabra: "poder",id:4},
-        {palabra: "podre",id:4},
-        {palabra: "amarino",id:5},
-        {palabra: "aminora",id:5},
-        {palabra: "mariano",id:5},
-        {palabra: "mariona",id:5},
-        {palabra: "ominara",id:5},
-        {palabra: "rata",id:6},
-        {palabra: "atar",id:6},
-        {palabra: "tara",id:6},
 
+      arrayDePalabras : Array <any >= [
+        { ordenada:"Saco",desordenada:"Cosa" },
+        { ordenada:"Alicante",desordenada:"Caliente" },
+        { ordenada:"Frase",desordenada:"Fresa" },
+        { ordenada:"Amor",desordenada:"Roma" },
+        { ordenada:"Delira",desordenada:"Lidera" },
+        { ordenada:"Pedro",desordenada:"Poder" },
+        { ordenada:"Resto",desordenada:"Retos" },
+        { ordenada:"Trata",desordenada:"Tarta" },
+        { ordenada:"Toro",desordenada:"Roto" },
+        { ordenada:"Cronista",desordenada:"Cortinas" },
+        { ordenada:"Eva",desordenada:"Ave" }
 
     ];
-	
 
-	public asignarPalabra() {       
-        let random = Math.floor(Math.random() * this.arrayPalabras.length);
-        let idAux:number = this.arrayPalabras[random].id;
-        //console.log(idAux);
-        for (var i = 0; i < this.arrayPalabras.length; ++i) {
-        	if (this.arrayPalabras[i].id == idAux) {
-        		console.log(this.arrayPalabras[i]);
-        	}
-        }
-        this.palabraAnagrama = this.arrayPalabras[random].palabra;
-        this.palabraAnagramaID =idAux;
-        console.log(this.palabraAnagrama);
-        console.log(this.palabraAnagramaID);
-
+    public asignarPalabra() {       
+        let indice;
+        indice =Math.floor(Math.random() * this.arrayDePalabras.length);
+        console.log(this.arrayDePalabras[indice]["ordenada"]);
+        this.palabraDesordenada=this.arrayDePalabras[indice]["desordenada"];
+        this.palabraOrdenada=this.arrayDePalabras[indice]["ordenada"];
     }
 
-    public verificar() {
-    	let idPalabraIngresada:number;
-    	for (var i = 0; i < this.arrayPalabras.length; ++i) {
-    		if (this.arrayPalabras[i].palabra == this.palabraIngresada) {
-    			idPalabraIngresada = this.arrayPalabras[i].id;
-    			break;
-    		}
-    	}
 
-    	if (idPalabraIngresada == this.palabraAnagramaID ) {
-    		this.gano = true;
-    		this.palabraAnagrama ="";
-    		this.palabraIngresada ="";
-    		this.palabraAnagramaID=0;
-    	}
+    verificar(){
+        if(this.palabraIngresada.toLowerCase() == this.palabraOrdenada.toLowerCase())
+        {
+        this.gano = true;
+         }
         if (this.gano) {
-          return true;
-        } else {
-          return false;
-        }
-    }
+            return true;
+            } else {
+            return false;
+            }
+                return false;
+            }
 }

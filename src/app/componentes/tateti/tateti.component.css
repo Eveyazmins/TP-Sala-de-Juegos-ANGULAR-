@@ -1,62 +1,66 @@
-img{
-    height: 95px;
-    width: 95px;
-}
-.container-fluid {
-    background-color: whitesmoke;
-    color:#EFDA54;
-    height: 400px;
-    display: block;
-
-}
 .fondo{
-	box-shadow: 1px 1px 18px 2px #000;
 
-	background-color:#0A5699;
-	padding-left: 7px;
-	width: 365px;
-    height: 569px;
-    margin: auto;
-    border-radius: 10px;
-    border-color: #EFDA54;
-	
+  background-image: url(".../../../docs/assets/imagenes/color_principal.jpg");
+    margin-top: -60px;
+    padding: 4%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+
+.casilla {
+    height: 5rem;
+    margin: 0.5rem;
+    font-size: 3rem;
+    border-radius:25px;
+    background-color: rgb(192, 105, 131);
+    width: 10rem;
+    border: solid rgb(211, 33, 72);
 }
 
-td {
-    border: 6px solid #222;
-  }
-  td::after {
-    content: '';
-    display: block;
-  }
-  td {
-    border: 6px solid #222;
-  }
-  td:first-of-type {
-    border-left-color: transparent;
-    border-top-color: transparent;
-  }
-  td:nth-of-type(2) {
-    border-top-color: transparent;
-  }
-  td:nth-of-type(3) {
-    border-right-color: transparent;
-    border-top-color: transparent;
-  }
-  tr:nth-of-type(3) td {
-    border-bottom-color: transparent;
-  }
-
-
-
-.btn:hover {
-
-    	box-shadow: 1px 1px 18px 2px #000;
+#snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+ 
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+#snackbar.Ganador {
+  background-color: #059F2F;
+}
+#snackbar.Perdedor {
+  background-color: #FF0000;
+}
+#snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
-.Ganador {
-    background-color: #059F2F;
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
 }
-.Perdedor {
-    background-color: #FF0000;
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
 }

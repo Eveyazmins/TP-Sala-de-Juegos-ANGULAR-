@@ -3,44 +3,45 @@ import { JuegoAgilidad } from '../../clases/juego-agilidad'
 
 import {Subscription} from "rxjs";
 import {TimerObservable} from "rxjs/observable/TimerObservable";
-import { empty } from 'rxjs/observable/empty';
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
-  @Output()enviarJuego :EventEmitter<any>= new EventEmitter<any>();
+   
+  @Output() 
+  enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   nuevoJuego : JuegoAgilidad;
   ocultarVerificar: boolean;
+  Mensajes:string;
   Tiempo: number;
   repetidor:any;
-  //mios
-  miNumero:number;
-  gano:boolean;
-  spiner:boolean = true;
-  Mensajes:string;
-
   private subscription: Subscription;
+  arrayResultados : Array<any>;
+  jugador = JSON.parse(localStorage.getItem("Id"));
+  intentos: number;
+
+
   ngOnInit() {
   }
    constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5; 
-     this.nuevoJuego = new JuegoAgilidad();
-     console.info("Inicio agilidad");  
+    this.ocultarVerificar=true;
+    
+    this.Tiempo=5; 
+    this.arrayResultados = JSON.parse(this.jugador);
+    this.intentos = 0;
+    this.nuevoJuego = new JuegoAgilidad("Agilidad Aritmetica", false, this.jugador, 0, "00");
+    
+    console.info("Inicio agilidad");  
   }
 
   NuevoJuego() {
-    this.nuevoJuego = new JuegoAgilidad();
-    this.gano = false;
-    this.spiner = false;
-    this.nuevoJuego.randomNumeroOperador();
-
-
-    //no mio
+    
     this.ocultarVerificar=false;
-    this.repetidor = setInterval(()=>{ 
+    this.nuevoJuego.generar();
+    this.nuevoJuego.resultadoUsuario = null;
+   this.repetidor = setInterval(()=>{ 
       
       this.Tiempo--;
       console.log("llego", this.Tiempo);
@@ -49,60 +50,61 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.verificar();
         this.ocultarVerificar=true;
         this.Tiempo=5;
+        
       }
-      }, 900);
-
-
+      },900);
+      
 
   }
   verificar()
   {
     this.ocultarVerificar=false;
     clearInterval(this.repetidor);
+    if(this.nuevoJuego.verificar())
+      {
+        this.MostarMensaje("Correcto. Acertaste el resultado!!",true);
+        this.nuevoJuego.gano = true;
+        this.nuevoJuego.nombre="Agilidad Aritmetica";
+        this.nuevoJuego.jugador=sessionStorage.getItem('user');        
+        
+      }
+      else
+        {
+          this.nuevoJuego.gano = false;
+          this.nuevoJuego.nombre="Agilidad Aritmetica";
+          this.nuevoJuego.jugador=sessionStorage.getItem('user');
+          this.MostarMensaje("Fallaste. El calculo es incorrecto!!",false);
+        }
+        this.nuevoJuego.guardarLocal();
+      
+        //Despues de verificar si gane o no, reinicio el juego!!
 
-    // this.nuevoJuego.calcular(this.miNumero);
-    // this.gano = this.nuevoJuego.calcular(this.miNumero);
-    // this.spiner = true;
-    // this.ocultarVerificar=true;
 
-
-    this.nuevoJuego.calcular(this.miNumero);
-    this.gano = this.nuevoJuego.calcular(this.miNumero);
-    console.log("GAANO",this.gano);
+   
     
-    if (this.gano == true) {
-      this.miNumero =0;
-      this.MostarMensaje("Sos un capo,Ganaste!!!",true);
-      this.enviarJuego.emit(this.nuevoJuego);
-    }
-    else{
-      this.miNumero =0;
-      this.MostarMensaje("La próxima será!!!",false);
-      this.enviarJuego.emit(this.nuevoJuego);
-    }
-    this.spiner = true;
+    this.Tiempo=5;
     this.ocultarVerificar=true;
    
 
    
   }  
+
   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean=false) {
     this.Mensajes=mensaje;    
-    let errorEmail = document.getElementById("msjPuntos");
+    var x = document.getElementById("snackbar");
     if(ganador)
       {
-        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-success>${mensaje} <i class="far fa-smile"></i> </kbd></h3>`);
+        x.className = "show Ganador";
       }else{
-        errorEmail.innerHTML = (`<h3 id='msjPuntos'><kbd class= label-danger>${mensaje} <i class="far fa-frown"></i></kbd></h3>`);
+        x.className = "show Perdedor";
       }
     var modelo=this;
     setTimeout(function(){ 
-      // errorEmail.className = errorEmail.className.replace("show", "");
-      errorEmail.innerHTML = "";
+      x.className = x.className.replace("show", "");
+      
      }, 3000);
-    console.info("objeto",errorEmail);
+    console.info("objeto",x);
   
    }
-
 
 }

@@ -21,26 +21,21 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
-import { MenuJuegosComponent } from '../componentes/menu-juegos/menu-juegos.component';
+import { HomeComponent } from '../componentes/home/home.component';
+import { AdivinaProvinciaComponent } from '../componentes/adivina-provincia/adivina-provincia.component';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
-import { PiedraPapelTijeraMasListadoComponent } from '../componentes/piedra-papel-tijera-mas-listado/piedra-papel-tijera-mas-listado.component';
-import { TatetiComponent } from '../componentes/tateti/tateti.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
-import { AnagramaMasListadoComponent } from '../componentes/anagrama-mas-listado/anagrama-mas-listado.component';
-import { TatetiMasListadoComponent } from '../componentes/tateti-mas-listado/tateti-mas-listado.component';
+import { TatetiComponent } from '../componentes/tateti/tateti.component';
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
 {path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
+{path: '' , component: LoginComponent},
 {path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
 {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
-{path: 'Paises' , component: ListadoDePaisesComponent},
-{path: 'MenuJuegos' , component: MenuJuegosComponent},
 
 { path: 'Juegos' ,
 component: JuegosComponent ,
@@ -50,13 +45,10 @@ children:
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'PPT' , component: PiedraPapelTijeraComponent},
-      {path: 'PPTMasListado' , component: PiedraPapelTijeraMasListadoComponent},
-      {path: 'Tateti' , component: TatetiComponent},
-      {path: 'TatetiMasListado' , component: TatetiMasListadoComponent},
+      {path: 'AdivinaProvincia' , component: AdivinaProvinciaComponent},
       {path: 'Anagrama' , component: AnagramaComponent},
-      {path: 'AnagramaMasListado' , component: AnagramaMasListadoComponent}
-    ]
+      {path: 'PiedraPapelTijera' , component: PiedraPapelTijeraComponent},
+      {path: 'Tateti' , component: TatetiComponent}]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];

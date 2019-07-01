@@ -1,71 +1,41 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-<div class="hero-text">
-  <h4>
-    {{nuevoJuego.nombre}}
-  </h4>
-</div>
+<!--The content below is only a placeholder and can be replaced.-->
+<!--app-menu></app-menu-->
+<!-- index.html -->
 
 <div class="fondo">
-
-  <div name="juego">
-
+<div name="juego" >
+  <h1 style="color:white; text-align:center">Agilidad Aritmetica</h1>
+<ul style="list-style:none;margin-left: 417px; color:white;">
+   <li>
+   Primer número: <input [(ngModel)]="nuevoJuego.primerNumero" placeholder="Primer Numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+  
+  </li>
+  <li>
+   Operador: <input [(ngModel)]="nuevoJuego.operador" placeholder="Operador" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
     
-
-    <div class="container">
-      
-        
-          <div class="bordeNumeros">
-            <img src="{{nuevoJuego.numeroUnoIMG}}">
-            <img src="{{nuevoJuego.operadorIMG}}">
-            <img src="{{nuevoJuego.numeroDosIMG}}">
-          </div>
-        
-
-<!--
-        <li>
-          <h4 [hidden]="ocultarVerificar">
-            <button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button>
-          </h4>
-        </li>
-        <li>
-          <h4 [hidden]="!ocultarVerificar">
-            <button (click)="NuevoJuego()" class="button">Nuevo</button>
-          </h4>
-        </li>
-      -->
-      
-      
-      
-            <input [(ngModel)]="miNumero" placeholder="Respuesta" name="numeroIngresado" type="number" class="campos"/>
-         
-
+  </li>
+  <li>
+   Segundo número: <input [(ngModel)]="nuevoJuego.segundoNumero" placeholder="Segundo Numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
+    
+  </li>
+  <li>
+    Respuesta: <input [(ngModel)]="nuevoJuego.resultadoUsuario" placeholder="ingrese Respuesta" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
      
-          <h4 [hidden]="ocultarVerificar">
-            <button (click)="verificar()" class="button">Verificar {{Tiempo}} </button>
-          </h4>
-       
+   </li>
+  <li>
+    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg" >Verificar {{Tiempo}} </button></h2>
+  </li>
+  <li><br>
+    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-outline-warning btn-lg" style="
+      padding: 20px;" >Nuevo</button></h2>
+  </li>
+  <li [hidden]="ocultarVerificar">
+    <h2><p><i class="loader" ></i>         Esperando numero...</p></h2>
+  </li>
+</ul>
 
-        
-          <h4 [hidden]="!ocultarVerificar">
-            <button (click)="NuevoJuego()" class="button">Nuevo juego</button>
-          </h4>
-        
-      <br>
-      <br>
-      <h4 [hidden]="spiner">
-          <p>
-            <img src="./assets/imagenes/mate/cargando.gif">Esperando numero..</p>
-        </h4>
-      <section [hidden]="!spiner" id="msjPuntos"></section>
+</div>
 
-      <div style="text-align:center">
-        <button  routerLink="/Juegos/AgilidadaMasListado"  class="button">Listados</button>
-      </div>
-
-    </div>
-
-
-  </div>
-
+<div id="snackbar">{{Mensajes}}</div>
+  <br><br><br><br><br><br><br><br>
 </div>

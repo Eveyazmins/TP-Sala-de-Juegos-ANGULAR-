@@ -1,13 +1,83 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { Juego } from '../../clases/juego';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { JuegoPiedraPapelTijera } from '../../clases/juego-piedra-papel-tijera';
-import { DISABLED } from '@angular/forms/src/model';
+import { CompileShallowModuleMetadata } from '@angular/compiler';
 
 @Component({
   selector: 'app-piedra-papel-tijera',
   templateUrl: './piedra-papel-tijera.component.html',
   styleUrls: ['./piedra-papel-tijera.component.css']
 })
+/*
+export class PiedraPapelTijeraComponent implements OnInit {
+
+  
+  nuevoJuego : JuegoPiedraPapelTijera;
+  ocultarVerificar : boolean;
+  ocultarNuevo : boolean;
+  Mensajes:string;
+  arrayResultados : Array<any>;
+  jugador = JSON.parse(localStorage.getItem("Id"));
+  intentos: number;
+
+
+  constructor() {
+
+    this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador,0,"0");
+    this.ocultarVerificar = true;
+    this.arrayResultados = JSON.parse(this.jugador);
+    this.intentos = 0;
+    this.nuevoJuego.resultado=null;
+    console.info(this.arrayResultados);
+
+   }
+
+   public generar(eleccion:string)
+   {
+     this.ocultarVerificar = false;
+     this.nuevoJuego.resultado= this.nuevoJuego.Jugar(eleccion);
+     
+    this.MostarMensaje(this.nuevoJuego.resultado, this.nuevoJuego.gana);
+    console.log(this.nuevoJuego.gana);
+    this.nuevoJuego.jugador=sessionStorage.getItem('user');
+    this.nuevoJuego.intentos = this.intentos+1;
+    this.intentos=0;
+        
+        
+      
+    this.nuevoJuego.intentos = this.intentos;
+  
+    console.log("maquina " + this.nuevoJuego.compu);
+    console.log("usuario " + eleccion);
+    console.log(this.nuevoJuego.resultado);
+  this.nuevoJuego.guardarLocal();
+  
+  //Despues de verificar si gane o no, reinicio el juego!!
+   }
+
+   MostarMensaje(mensaje:string="este es el mensaje",ganador:boolean) {
+    this.Mensajes=mensaje;    
+    var x = document.getElementById("snackbar");
+    if(ganador)
+      {
+        x.className = "show Ganador";
+      }else{
+        x.className = "show Perdedor";
+      }
+    var modelo=this;
+    setTimeout(function(){ 
+      x.className = x.className.replace("show", "");
+      modelo.ocultarVerificar=false;
+     }, 3000);
+    console.info("objeto",x);
+  
+   }  
+
+  ngOnInit() {
+  }
+
+}
+*/
+
 export class PiedraPapelTijeraComponent implements OnInit {
   @Output()enviarJuego :EventEmitter<any>= new EventEmitter<any>();
   
@@ -24,11 +94,23 @@ export class PiedraPapelTijeraComponent implements OnInit {
   labelGanaste:boolean =false;
   labelPerdiste:boolean =false;
   bSonido:boolean=false;
+//AGREGADOS
+  arrayResultados : Array<any>;
+  jugador = JSON.parse(localStorage.getItem("Id"));
+  intentos: number;
+
 
   constructor() { 
-    this.nuevoJuego = new JuegoPiedraPapelTijera();
-    
+  //  this.nuevoJuego = new JuegoPiedraPapelTijera();
+  this.nuevoJuego = new JuegoPiedraPapelTijera("Piedra, Papel o Tijera",false,this.jugador,0,"0");
+  this.arrayResultados = JSON.parse(this.jugador);
+  this.intentos = 0;
+  this.nuevoJuego.resultado=null;
+  console.info(this.arrayResultados);
   }
+
+
+
   primerJuego(){
     //this.generarPartida(Math.floor(Math.random() * 3) + 1);
     this.nuevoJuego = new JuegoPiedraPapelTijera();
@@ -41,6 +123,31 @@ export class PiedraPapelTijeraComponent implements OnInit {
     botonPapel.disabled =false;
     botonTijera.disabled =false;
   }
+
+  /*
+     public generar(eleccion:string)
+   {
+     this.ocultarVerificar = false;
+     this.nuevoJuego.resultado= this.nuevoJuego.Jugar(eleccion);
+     
+    this.MostarMensaje(this.nuevoJuego.resultado, this.nuevoJuego.gana);
+    console.log(this.nuevoJuego.gana);
+    this.nuevoJuego.jugador=sessionStorage.getItem('user');
+    this.nuevoJuego.intentos = this.intentos+1;
+    this.intentos=0;
+        
+        
+      
+    this.nuevoJuego.intentos = this.intentos;
+  
+    console.log("maquina " + this.nuevoJuego.compu);
+    console.log("usuario " + eleccion);
+    console.log(this.nuevoJuego.resultado);
+  this.nuevoJuego.guardarLocal();
+  
+  //Despues de verificar si gane o no, reinicio el juego!!
+   }
+  */
 
   generarPartida(eleccionAux:number) {
     //this.audio = new Audio('demo');
@@ -106,6 +213,7 @@ export class PiedraPapelTijeraComponent implements OnInit {
       this.puntos ++;
       if (this.puntos == 3) {
         this.nuevoJuego.gano =true;
+        this.nuevoJuego.jugador=sessionStorage.getItem('user');
         this.enviarJuego.emit(this.nuevoJuego);
         this.botonComenzarVerificar = false;
         this.labelGanaste =true;
@@ -163,18 +271,27 @@ export class PiedraPapelTijeraComponent implements OnInit {
         resultado1.src = `../../../assets/PPT/img/a${this.elecccionJugador}.png`;
         resultado2.src = `../../../assets/PPT/img/m${this.eleccionMalo}.png`;
         this.sonido("../../../assets/PPT/sonido/ganastePPT.ogg");
+        this.nuevoJuego.gano= true;
+        this.nuevoJuego.jugador=sessionStorage.getItem('user');
+        this.nuevoJuego.guardarLocal();
+        
       }
     if(ganador==false) {
       errorEmail.innerHTML = (`<h1 id='msjPuntos'><kbd class= label-danger>${mensaje} <i class="far fa-frown"></i></kbd></h1>`);
       resultado1.src = `../../../assets/PPT/img/a${this.elecccionJugador}.png`;
       resultado2.src = `../../../assets/PPT/img/m${this.eleccionMalo}.png`;
       this.sonido("../../../assets/PPT/sonido/perdistePPT.ogg");
+      this.nuevoJuego.gano= false;
+      this.nuevoJuego.jugador=sessionStorage.getItem('user');
+      this.nuevoJuego.guardarLocal();
+      
       }
     if (ganador==null) {
       errorEmail.innerHTML = (`<h1 id='msjPuntos'><kbd class= label-warning>${mensaje} <i class="far fa-meh"></i></kbd></h1>`);
       resultado1.src = `../../../assets/PPT/img/a${this.elecccionJugador}.png`;
       resultado2.src = `../../../assets/PPT/img/m${this.eleccionMalo}.png`;
       this.sonido("../../../assets/PPT/sonido/empatePPT.ogg");
+      
     }
 
     var modelo=this;
