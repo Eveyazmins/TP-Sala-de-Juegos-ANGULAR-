@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { JuegoAnagrama } from '../../clases/juego-anagrama';
 
+import {Subscription} from "rxjs";
+import {TimerObservable} from "rxjs/observable/TimerObservable";
 @Component({
   selector: 'app-anagrama',
   templateUrl: './anagrama.component.html',
   styleUrls: ['./anagrama.component.css']
 })
 export class AnagramaComponent implements OnInit {
-
+  
   nuevoJuego: JuegoAnagrama;
   Mensajes:string;
   contador:number;
