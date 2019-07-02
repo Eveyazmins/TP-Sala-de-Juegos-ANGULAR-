@@ -67,7 +67,7 @@ body {
     position: relative;
     text-transform: uppercase;
     color: rgb(214, 37, 75);
-    text-align: center;
+    text-align: left;
 }
 .aboutus-title::after {
     background: #fd014d none repeat scroll 0 0;

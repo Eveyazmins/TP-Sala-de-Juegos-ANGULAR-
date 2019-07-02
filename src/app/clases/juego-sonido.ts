@@ -6,8 +6,9 @@ export class JuegoSonido extends Juego {
     respuesta:string;
     cantArray:number =0;
 
-    constructor(nombre?: string, gano?: boolean, jugador?:string) {
-        super("Que animal Es?",gano,jugador);
+    constructor(nombre?: string, gano?: boolean, jugador?:string, intentos?:any,resultado?:string) {
+        super(nombre, gano,jugador, intentos, resultado);
+        this.nombre = "Adivina Sonido";
         //this.jugador =localStorage.getItem("jugador");
       }
 

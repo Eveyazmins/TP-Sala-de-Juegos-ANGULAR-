@@ -1,7 +1,9 @@
 .fondo{
 
-    background-image: url(".../../../docs/assets/imagenes/slider-bg-2.jpg");
+    background-image: url(".../../../docs/assets/imagenes/color_principal.jpg");
     margin-top: -60px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
 

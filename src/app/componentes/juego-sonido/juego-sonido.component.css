@@ -1,51 +1,54 @@
-ul{
-	list-style-type:none;
+/* img{
+    height: 55px;
+    width: 55px;
+}
+.fondo{
+    text-align:center;
+    background-color:#0A5699;
+    color:#EFDA54;
+    height: 500px;
+    
+}
+.imagenes{
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 18px 2px #000;
+    width: 355px;
+    margin: auto;
+    margin-top: 10px;
+    padding-bottom: 12px;
+} */
+
+img{
+    height: 100px;
+    width: 100px;
+}
+.container-fluid {
+    background-color: whitesmoke;
+    color:#EFDA54;
+    height: 1100px;
+    display: block;
+
 }
 
-.container {
-  background-color:rgb(103, 171, 231);
-  box-shadow: 1px 1px 18px 2px #000;
-  border-radius: 10px;
-  height: 1200px;
-  width: 720px;
-  margin:150px auto;
+.fondo{
+    
+      background-image: url(".../../../docs/assets/imagenes/color_principal.jpg");
+        margin-top: -60px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
 
-}
+.contenedor{
+	box-shadow: 1px 1px 18px 2px #000;
 
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #3E06B0;
-  font: 350% monospace;
-  }
-  
-  .hero-text a {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 10px 25px;
-  color: black;
-  background-color: #ddd;
-  text-align: center;
-  cursor: pointer;
-  }
-  
-  .hero-text a:hover {
-  background-color: #555;
-  color: white;
-  }
-
-  .button-listado {
-    /*background-color: #4CAF50;*/
-    color: rgb(97, 96, 90);
-    padding: 20px 50px;
-    margin: 8px 20;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+	background-color:rgb(241, 74, 96);
+	padding-left: 7px;
+	width: 640px;
+    height: 860px;
+    margin: auto;
+    border-radius: 10px;
+    border-color: rgb(214, 145, 247);
+	
 }
 
 .Ganador {

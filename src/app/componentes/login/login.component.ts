@@ -112,14 +112,14 @@ export class LoginComponent implements OnInit {
 
     admin()
     {
-      this.user.email="admin@gmail.com";
+      this.user.email="admineve@gmail.com";
         this.user.password="111111";
     }
 
     invitado()
     {
-      this.user.email="invitado@gmail.com";
-        this.user.password="222222";
+      this.user.email="usuario@gmail.com";
+        this.user.password="111111";
     }
 
 

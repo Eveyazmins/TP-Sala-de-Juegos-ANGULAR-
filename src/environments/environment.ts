@@ -8,6 +8,19 @@ export const environment = {
 };
 */
 
+export const environment = {
+  production: false,
+  firebase: {
+    apiKey: "AIzaSyAcECDJnU5-JemHD9c-nMZ5DoNVFpp4fCE",
+    authDomain: "saladejuegos-b550a.firebaseapp.com",
+    databaseURL: "https://saladejuegos-b550a.firebaseio.com",
+    projectId: "saladejuegos-b550a",
+    storageBucket: "saladejuegos-b550a.appspot.com",
+    messagingSenderId: "855801663242"
+  }
+}
+
+
 export const firebaseConfig = {
   apiKey: "AIzaSyAcECDJnU5-JemHD9c-nMZ5DoNVFpp4fCE",
   authDomain: "saladejuegos-b550a.firebaseapp.com",
@@ -17,6 +30,7 @@ export const firebaseConfig = {
   messagingSenderId: "855801663242"
 }
 
+/*
 export const environment = {
   production: false,
   firebase: {
@@ -27,4 +41,5 @@ export const environment = {
     storageBucket: "usuarios-d42dc.appspot.com",
     messagingSenderId: "284760046985"
   }
-};
+  */
+

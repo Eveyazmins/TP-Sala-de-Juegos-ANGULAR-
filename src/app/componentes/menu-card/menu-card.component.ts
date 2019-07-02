@@ -27,9 +27,6 @@ export class MenuCardComponent implements OnInit {
       case 'AgilidadaMasListado':
         this.router.navigate(['/Juegos/AgilidadaMasListado']);
         break;
-        case 'AdivinaProvincia':
-          this.router.navigate(['/Juegos/AdivinaProvincia']);
-          break;
           case 'PPT':
           this.router.navigate(['/Juegos/PiedraPapelTijera']);
         break;
@@ -39,6 +36,8 @@ export class MenuCardComponent implements OnInit {
         case 'Tateti':
           this.router.navigate(['/Juegos/Tateti']);
         break;
+        case 'JuegoSonido':
+        this.router.navigate(['/Juegos/JuegoSonido']);
     }
   }
 }

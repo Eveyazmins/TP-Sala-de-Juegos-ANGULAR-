@@ -22,11 +22,10 @@ import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/lista
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 import { HomeComponent } from '../componentes/home/home.component';
-import { AdivinaProvinciaComponent } from '../componentes/adivina-provincia/adivina-provincia.component';
 import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 import { TatetiComponent } from '../componentes/tateti/tateti.component';
-
+import { JuegoSonidoComponent} from '../componentes/juego-sonido/juego-sonido.component';
 // declaro donde quiero que se dirija
 const MiRuteo = [
 {path: 'Jugadores' , component: JugadoresListadoComponent},
@@ -45,10 +44,10 @@ children:
       {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
       {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
       {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
-      {path: 'AdivinaProvincia' , component: AdivinaProvinciaComponent},
       {path: 'Anagrama' , component: AnagramaComponent},
       {path: 'PiedraPapelTijera' , component: PiedraPapelTijeraComponent},
-      {path: 'Tateti' , component: TatetiComponent}]
+      {path: 'Tateti' , component: TatetiComponent}, 
+      {path: 'JuegoSonido' , component: JuegoSonidoComponent}]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];

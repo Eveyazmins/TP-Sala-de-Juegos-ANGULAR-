@@ -24,20 +24,28 @@ export class JuegoSonidoComponent implements OnInit {
   audio = new Audio();
   Mensajes:string;
   contador:number = 0;
-  contadorGanados:number = 30;
+  contadorGanados:number = 3;
   spiner:boolean= false;
+  arrayResultados : Array<any>;
+  jugador = JSON.parse(localStorage.getItem("Id"));
+  intentos: number;
 
 
 
 
   constructor() {
-    this.nuevoJuego = new JuegoSonido();
+    //this.nuevoJuego = new JuegoSonido();
+    this.nuevoJuego = new JuegoSonido("Adivina Sonido",false,this.jugador,0,"0");
+    this.arrayResultados = JSON.parse(this.jugador);
+    this.intentos = 0;
+    this.nuevoJuego.resultado=null;
+    console.info(this.arrayResultados);
     
    }
    jugarDeNuevo(){
     this.nuevoJuego = new JuegoSonido();
     this.contador =0;
-    this.contadorGanados =30;
+    this.contadorGanados =3;
     this.puntos =0;
     this.labelGanaste = false;
     this.prenderBotones();
@@ -98,11 +106,16 @@ export class JuegoSonidoComponent implements OnInit {
       this.contadorGanados --;
       // this.sonido("../../../assets/sonidos/yes.ogg")
       this.MostarMensaje("Muy Bien!!! +1",true);
-      this.sonido("../../../assets/sonidos/yes.ogg");;
+      this.sonido("../../../assets/sonidos/yes.ogg");
+      console.log("contador" + this.contadorGanados);
+
 
        if (this.contadorGanados ==0) {
+        this.MostarMensaje("Ganaste!!!",true);
         this.nuevoJuego.gano=true;
+        this.nuevoJuego.jugador=sessionStorage.getItem('user');
         this.enviarJuego.emit(this.nuevoJuego);
+        this.nuevoJuego.guardarLocal();
         this.nuevoJuego = new JuegoSonido();
         
         this.botonNuevoJuego = true;
@@ -145,9 +158,13 @@ export class JuegoSonidoComponent implements OnInit {
 
           case 4:
           this.MostarMensaje("Perdiste!!!",false);
+       
           this.nuevoJuego.gano=false;
+          this.nuevoJuego.jugador=sessionStorage.getItem('user');
           this.enviarJuego.emit(this.nuevoJuego);
+          this.nuevoJuego.guardarLocal();
           this.nuevoJuego = new JuegoSonido();
+        
           
           this.botonNuevoJuego = true;
           this.botonRepetir = false;

@@ -33,6 +33,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import {AuthService} from '../app/servicios/auth.service';
 
 import {environment, firebaseConfig} from '../environments/environment';
+
 // declaro donde quiero que se dirija
 /*
 const MiRuteo = [{path: 'error' , component: ErrorComponent},
@@ -64,9 +65,9 @@ import { SexoPipe } from './pipes/sexo.pipe';
 import { HomeComponent } from './componentes/home/home.component';
 import { MenuPrincipalComponent } from './componentes/menu-principal/menu-principal.component';
 import { FooterComponent } from './componentes/footer/footer.component';
-import { AdivinaProvinciaComponent } from './componentes/adivina-provincia/adivina-provincia.component';
 import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
 import { TatetiComponent } from './componentes/tateti/tateti.component';
+import { JuegoSonidoComponent} from './componentes/juego-sonido/juego-sonido.component';
 
 @NgModule({
   declarations: [
@@ -96,9 +97,9 @@ import { TatetiComponent } from './componentes/tateti/tateti.component';
     HomeComponent,
     MenuPrincipalComponent,
     FooterComponent,
-    AdivinaProvinciaComponent,
     PiedraPapelTijeraComponent,
-    TatetiComponent
+    TatetiComponent,
+    JuegoSonidoComponent
   ],
   imports: [
     BrowserModule,
