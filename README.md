@@ -7,4 +7,4 @@ Mi sala de juegos:
 https://github.com/Eveyazmins/TP-Sala-de-Juegos-ANGULAR-
 
 Mi sala de juegos en el servidor:
-https://saledejuegos.000webhostapp.com/
+https://saladejuegos19.000webhostapp.com/
